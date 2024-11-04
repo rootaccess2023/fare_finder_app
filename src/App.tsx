@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { fetchFare, fetchStations } from "./api/api";
 import { FareDetails, Station } from "./types/types";
-import { Fare, Header, Menu } from "./components";
+import { Details, Fare, Header } from "./components";
 
 type Line = "lrt1" | "lrt2" | "mrt3";
 
@@ -37,7 +37,7 @@ function App() {
     <main className="h-screen bg-gray-200">
       <Header />
       <Fare />
-      <Menu />
+      <Details />
       <button onClick={() => handleFetchStations("lrt1")}>LRT1</button>
       <button onClick={() => handleFetchStations("lrt2")}>LRT2</button>
       <button onClick={() => handleFetchStations("mrt3")}>MRT3</button>
