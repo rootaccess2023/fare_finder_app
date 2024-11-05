@@ -9,10 +9,12 @@ export default {
       colors: {
         primary: '#003082',
         secondary: '#fec817',
+        secondary_dark: '#f3b518',
         tertiary: '#0063d3',
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
+        visby: ['"Visby Round CF Bold"'],
         sans: ['Poppins', 'sans-serif'],
       },
     },

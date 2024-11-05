@@ -1,4 +1,5 @@
 export type Line = "lrt1" | "lrt2" | "mrt3";
+export type Ticket = "sjt" | "svt";
 
 export interface Station {
     id: number;
@@ -27,6 +28,8 @@ export interface StateContextType {
     setEndStation: React.Dispatch<React.SetStateAction<number | null>>;
     fareDetails: FareDetails | null;
     setFareDetails: React.Dispatch<React.SetStateAction<FareDetails | null>>
+    setTicketType: React.Dispatch<React.SetStateAction<Ticket>>;
+    ticketType: Ticket;
 }
 
 export interface FromStationsProps {

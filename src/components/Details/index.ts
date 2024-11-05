@@ -1,0 +1,6 @@
+export * from "./DetailsHeader"
+export * from "./DestinationHeader"
+export * from "./StartStation"
+export * from "./IntermediateStation"
+export * from "./EndStation"
+export * from "./TicketPrice"
