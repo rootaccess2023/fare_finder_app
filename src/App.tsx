@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { fetchFare, fetchStations } from "./api/api";
-import { FareDetails, Station } from "./types/types";
+import { FareDetails, Line, StateContextType, Station } from "./types/types";
 import { Details, Fare, Header } from "./components";
 
-type Line = "lrt1" | "lrt2" | "mrt3";
+export const stateContext = createContext<StateContextType | null>(null);
 
 function App() {
   const [stations, setStations] = useState<Station[]>([]);
@@ -33,36 +33,23 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    handleFetchStations("lrt1");
+  }, [])
+
   return (
+    <stateContext.Provider value={{stations, line, startStation, endStation, setStartStation, setEndStation, handleFetchStations, handleFetchFare, setFareDetails, fareDetails}}>
     <main className="h-screen bg-gray-200">
       <Header />
-      <Fare />
+      <Fare/>
       <Details />
-      <button onClick={() => handleFetchStations("lrt1")}>LRT1</button>
-      <button onClick={() => handleFetchStations("lrt2")}>LRT2</button>
-      <button onClick={() => handleFetchStations("mrt3")}>MRT3</button>
 
-      <label htmlFor="start-station">Start Station:</label>
-      <select id="start-station" onChange={(e) => setStartStation(Number(e.target.value))} value={startStation || ""}>
-        <option value="">Select a station</option>
-        {stations.map((station) => (
-          <option key={station.id} value={station.id}>{station.name}</option>
-        ))}
-      </select>
-
-      <label htmlFor="end-station">End Station:</label>
-      <select id="end-station" onChange={(e) => setEndStation(Number(e.target.value))} value={endStation || ""}>
-        <option value="">Select a station</option>
-        {stations.map((station) => (
-          <option key={station.id} value={station.id}>{station.name}</option>
-        ))}
-      </select>
-
-      <button onClick={handleFetchFare}>Calculate Fare</button>
 
       {fareDetails && (
         <div>
           <h3>Fare Information</h3>
+          <p>SJT Fare: {fareDetails.start_station.name}</p>
+          <p>SJT Fare: {fareDetails.end_station.name}</p>
           <p>SJT Fare: {fareDetails.sjt_fare}</p>
           <p>SVT Fare: {fareDetails.svt_fare}</p>
           <p>Distance: {fareDetails.distance} km</p>
@@ -76,6 +63,7 @@ function App() {
         </div>
       )}
     </main>
+    </stateContext.Provider>
   );
 }
 
