@@ -11,6 +11,7 @@ import { ToStationList } from "./Fare/ToStationList";
 import { useState } from "react";
 import { TrainTicket } from "./Fare/TrainTicket";
 
+
 export function Fare() {
 
   const [fromQuery, setFromQuery] = useState<string>("");

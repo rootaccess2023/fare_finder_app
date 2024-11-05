@@ -5,3 +5,43 @@
 /* Fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela+Round&display=swap');
+
+@font-face {
+    font-family: "Visby Round CF Bold";
+    src: url("https://db.onlinewebfonts.com/t/89cab462df01ab3846f362d717bea59b.eot");
+    src: url("https://db.onlinewebfonts.com/t/89cab462df01ab3846f362d717bea59b.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/89cab462df01ab3846f362d717bea59b.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/89cab462df01ab3846f362d717bea59b.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/89cab462df01ab3846f362d717bea59b.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/89cab462df01ab3846f362d717bea59b.svg#Visby Round CF Bold")format("svg");
+}
+
+@font-face {
+    font-family: "Visby Round CF Medium";
+    src: url("https://db.onlinewebfonts.com/t/85c11596f04944470089a2cae2d7d298.eot");
+    src: url("https://db.onlinewebfonts.com/t/85c11596f04944470089a2cae2d7d298.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/85c11596f04944470089a2cae2d7d298.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/85c11596f04944470089a2cae2d7d298.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/85c11596f04944470089a2cae2d7d298.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/85c11596f04944470089a2cae2d7d298.svg#Visby Round CF Medium")format("svg");
+}
+
+@font-face {
+    font-family: "Visby Round CF Heavy";
+    src: url("https://db.onlinewebfonts.com/t/5237a1e3a872fc2e31712575aa39235b.eot");
+    src: url("https://db.onlinewebfonts.com/t/5237a1e3a872fc2e31712575aa39235b.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/5237a1e3a872fc2e31712575aa39235b.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/5237a1e3a872fc2e31712575aa39235b.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/5237a1e3a872fc2e31712575aa39235b.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/5237a1e3a872fc2e31712575aa39235b.svg#Visby Round CF Heavy")format("svg");
+}
+
+@font-face {
+    font-family: "Visby Round CF Light";
+    src: url("https://db.onlinewebfonts.com/t/b308b655c4a8ecda903f3dae55345490.eot");
+    src: url("https://db.onlinewebfonts.com/t/b308b655c4a8ecda903f3dae55345490.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/b308b655c4a8ecda903f3dae55345490.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/b308b655c4a8ecda903f3dae55345490.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/b308b655c4a8ecda903f3dae55345490.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/b308b655c4a8ecda903f3dae55345490.svg#Visby Round CF Light")format("svg");
+}
