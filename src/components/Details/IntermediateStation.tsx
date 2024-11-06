@@ -20,10 +20,10 @@ export function IntermediateStation() {
             <span className="w-full">5 mins</span>
           </div>
         </time>
-        <div className="w-[31.5rem] flex flex-col relative left-8 gap-4 py-4 border-y">
+        <div className="w-[79%] lg:w-[31.5rem] flex flex-col relative left-8 gap-4 py-4 border-y">
             <div className="w-full flex justify-between items-center">
-                <div className="absolute -left-5 top-0 h-full border-l-2 border-tertiary"></div>
-                <div className="font-light">
+            <div className="absolute -left-5 top-0 h-full border-l-2 border-tertiary"></div>
+            <div className="font-light">
                   <p className="text-sm text-gray-500">Light Rail Transit 1</p>
                   <p className="text-sm text-gray-500">Southbound</p>
                   <p className="text-sm text-gray-500">9 stops</p>

@@ -9,7 +9,7 @@ export function TrainLines() {
   const { handleFetchStations } = context;
 
   return (
-    <div className="flex gap-2 text-primary border-b-[0.125rem] border-[#0707211a] hover:border-primary pb-1 cursor-pointer">
+    <div className="flex flex-col gap-2 text-primary border-b-[0.125rem] border-[#0707211a] hover:border-primary pb-1 cursor-pointer sm:flex-row">
         <h2 className="flex gap-2">
             <PiTrainLight className="size-[23px]" />
             <span>Train line:</span>

@@ -27,7 +27,7 @@ export function DestinationHeader() {
   }, []);
 
   return (
-    <header className="h-[42px] flex items-center justify-center bg-[#f7f7f8] border-b">
+    <header className="h-[42px] hidden lg:flex lg:items-center lg:justify-center bg-[#f7f7f8] border-b">
       <h2 className="font-light text-sm text-[#515164]">{currentDate}</h2>
     </header>
   );

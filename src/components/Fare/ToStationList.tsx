@@ -14,7 +14,7 @@ export function ToStationList({toQuery, setToQuery, setToggleToList} : ToStation
     })
 
     return (
-        <div className="h-[337px] w-[555.333px] z-10 absolute top-[3.25rem] right-0 bg-white border-[1px] border-[#07072126] overflow-scroll rounded">
+        <div className="h-[337px] w-full z-10 absolute top-[3.25rem] right-0 bg-white border-[1px] border-[#07072126] overflow-scroll rounded lg:w-[calc(50%_-_20px)]">
             <ul>
             {filteredStations.map((station) => (
                 <li

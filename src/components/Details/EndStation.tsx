@@ -12,7 +12,7 @@ export function EndStation() {
   }
 
   return (
-    <div className="flex items-start">
+    <div className="flex items-start pb-6 lg:pb-0">
         <time className="w-20 font-semibold text-primary text-right mr-4" dateTime="2023-08-01T06:17">{fareDetails?.time} mins</time>
         <div className="relative flex-1">
             <div className="absolute left-3 -top-12 h-full border-l-2 border-tertiary"></div>
