@@ -6,13 +6,6 @@ export function DestinationHeader2() {
 
   const getDate = () => {
     const today = new Date();
-    const options: Intl.DateTimeFormatOptions = {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    };
-
     const weekday = today.toLocaleDateString('en-US', { weekday: 'long' });
     const month = today.toLocaleDateString('en-US', { month: 'long' });
     const day = today.getDate();
