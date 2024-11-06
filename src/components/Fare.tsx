@@ -5,7 +5,6 @@ import { FareHeader } from "./Fare/FareHeader";
 import { FareButton } from "./Fare/FareButton";
 import { FareTicket } from "./Fare/FareTicket";
 import { TrainLines } from "./Fare/TrainLines";
-import { TrainInfo } from "./Fare/TrainInfo";
 import { FromStationsList } from "./Fare/FromStationsList";
 import { ToStationList } from "./Fare/ToStationList";
 import { useState } from "react";
@@ -18,6 +17,11 @@ export function Fare() {
   const [toQuery, setToQuery] = useState<string>("");
   const [toggleFromList, setToggleFromList] = useState<boolean>(false);
   const [toggleToList, setToggleToList] = useState<boolean>(false);
+
+  const handleExchangeStation = () => {
+    setFromQuery(toQuery);
+    setToQuery(fromQuery);
+  }
 
   return (
     <div className="bg-[#fec817] p-6 lg:p-14">
@@ -38,7 +42,17 @@ export function Fare() {
                   setToggleFromList={setToggleFromList}
                 />
               )}
-              <LiaExchangeAltSolid className="absolute top-4 right-4 text-primary lg:relative lg:top-0 lg:right-0 lg:h-[45px] lg:text-4xl" />
+              {fromQuery ? (
+                <LiaExchangeAltSolid
+                  onClick={handleExchangeStation}
+                  className="absolute top-4 right-10 text-primary cursor-pointer hover:text-tertiary lg:relative lg:top-0 lg:right-0 lg:h-[45px] lg:text-4xl"
+                />
+              ) : (
+                <LiaExchangeAltSolid
+                  onClick={handleExchangeStation}
+                  className="absolute top-4 right-4 text-primary cursor-pointer hover:text-tertiary lg:relative lg:top-0 lg:right-0 lg:h-[45px] lg:text-4xl"
+                />
+              )}
               <ToStation
                 toQuery={toQuery}
                 setToQuery={setToQuery}
@@ -53,10 +67,9 @@ export function Fare() {
               )}
             </div>
             <div className="flex flex-col gap-3 font-light lg:flex-row lg:items-center lg:justify-between">
-              <div className="flex gap-4 justify-between">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 <TrainLines />
                 <TrainTicket />
-                <TrainInfo />
               </div>
               <div className="flex flex-col-reverse gap-2 lg:flex-row">
                 <FareTicket />

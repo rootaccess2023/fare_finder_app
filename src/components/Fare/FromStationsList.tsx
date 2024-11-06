@@ -16,7 +16,7 @@ export function FromStationsList({fromQuery, setFromQuery, setToggleFromList} : 
 
     return (
         <div className="h-[337px] w-full flex z-10 absolute top-[3.25rem] left-0 bg-white border-[1px] border-[#07072126] overflow-scroll rounded lg:w-[calc(50%_-_20px)]">
-            <ul>
+            <ul className="w-full">
             {filteredStations.map((station) => (
                 <li
                     onMouseDown={() => {setToggleFromList(false); setFromQuery(station.name); setStartStation(station.id)}}

@@ -8,7 +8,7 @@ export function TrainTicket() {
   const { setTicketType } = context;
 
   return (
-    <div className="flex flex-col gap-2 text-primary border-b-[0.125rem] border-[#0707211a] hover:border-primary pb-1 cursor-pointer sm:flex-row">
+    <div className="w-fit flex gap-2 text-primary border-b-[0.125rem] border-[#0707211a] hover:border-primary pb-1 cursor-pointer sm:flex-row">
         <h2 className="flex gap-2">
             <PiTicketLight className="size-[23px]" />
             <span>Ticket type:</span>
