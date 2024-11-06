@@ -53,7 +53,7 @@ export function Fare() {
               )}
             </div>
             <div className="flex flex-col gap-3 font-light lg:flex-row lg:items-center lg:justify-between">
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-between">
                 <TrainLines />
                 <TrainTicket />
                 <TrainInfo />
