@@ -16,7 +16,7 @@ export function Details() {
   const { fareDetails } = context;
 
   return (
-    <div className="max-w-6xl mx-auto pb-[53px]">
+    <div className="max-w-6xl mx-auto lg:pb-96">
       <DetailsHeader />
       <div className="flex flex-col-reverse lg:gap-8 lg:flex-row">
         <div className="h-fit w-full bg-white lg:w-5/12">

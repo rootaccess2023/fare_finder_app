@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { fetchFare, fetchStations } from "./api/api";
 import { FareDetails, Line, StateContextType, Station, Ticket } from "./types/types";
 import { Details, Fare, Header } from "./components";
+import { Footer } from "./components/Footer";
 
 export const stateContext = createContext<StateContextType | null>(null);
 
@@ -44,6 +45,7 @@ function App() {
       <Header />
       <Fare/>
       <Details />
+      <Footer />
     </main>
     </stateContext.Provider>
   );

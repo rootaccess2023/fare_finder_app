@@ -6,7 +6,7 @@ import { stateContext } from "../../App";
 
 export function IntermediateStation() {
 
-  const [toggleIS, setToggleIS] = useState<boolean>(true);
+  const [toggleIS, setToggleIS] = useState<boolean>(false);
 
   const context = useContext(stateContext);
   if (!context) return null;
@@ -20,7 +20,7 @@ export function IntermediateStation() {
             <span className="w-full">5 mins</span>
           </div>
         </time>
-        <div className="w-[79%] lg:w-[31.5rem] flex flex-col relative left-8 gap-4 py-4 border-y">
+        <div className="w-[calc(100%_-_165px)] flex flex-col relative left-8 gap-4 py-4 border-y">
             <div className="w-full flex justify-between items-center">
             <div className="absolute -left-5 top-0 h-full border-l-2 border-tertiary"></div>
             <div className="font-light">
@@ -29,10 +29,10 @@ export function IntermediateStation() {
                   <p className="text-sm text-gray-500">9 stops</p>
                 </div>
                 <div className="flex gap-2 ">
-                  <GoPeople className="text-[#017832]" />
+                  <GoPeople className="text-important" />
                   <IoIosArrowDown
                     onClick={() => setToggleIS(prev => !prev)}
-                    className="text-gray-600"
+                    className="text-gray-600 cursor-pointer"
                   />
                 </div>
             </div>
@@ -45,7 +45,7 @@ export function IntermediateStation() {
                         {station.name}
                         <div className="absolute -left-5 top-2 w-3 h-[2px] bg-tertiary"></div>
                       </p>
-                      <p className="flex gap-2 items-center">
+                      {/* <p className="flex gap-2 items-center">
                         <PiBusLight />
                         <span>EDSA Carousel</span>
                         <h3 className="bg-gray-200 size-5 flex items-center justify-center text-primary text-[10px]">
@@ -59,7 +59,7 @@ export function IntermediateStation() {
                       <p className="flex gap-2 items-center">
                         <PiTrainLight />
                         <span>Train</span>
-                      </p>
+                      </p> */}
                     </div>
                   ))
                 )}
