@@ -45,7 +45,7 @@ export function IntermediateStation() {
                         {station.name}
                         <div className="absolute -left-5 top-2 w-3 h-[2px] bg-tertiary"></div>
                       </p>
-                      {/* <p className="flex gap-2 items-center">
+                      <p className="flex gap-2 items-center">
                         <PiBusLight />
                         <span>EDSA Carousel</span>
                         <h3 className="bg-gray-200 size-5 flex items-center justify-center text-primary text-[10px]">
@@ -59,7 +59,7 @@ export function IntermediateStation() {
                       <p className="flex gap-2 items-center">
                         <PiTrainLight />
                         <span>Train</span>
-                      </p> */}
+                      </p>
                     </div>
                   ))
                 )}
