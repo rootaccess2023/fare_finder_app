@@ -68,6 +68,7 @@ export function Fare() {
                 toQuery={toQuery}
                 setToQuery={setToQuery}
                 setToggleToList={setToggleToList}
+                setToggleButton={setToggleButton}
               />
               {toggleToList && (
                 <ToStationList

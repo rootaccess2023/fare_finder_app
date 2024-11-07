@@ -9,6 +9,7 @@ import { useContext, useRef } from "react";
 import { stateContext } from "../App";
 import { TrainMap } from "./Details/TrainMap";
 import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 export function Details() {
 
@@ -19,11 +20,30 @@ export function Details() {
       html2canvas(captureRef.current).then((canvas) => {
         const imageURL = canvas.toDataURL("image/png");
 
-        // Create a link and trigger the download
         const link = document.createElement('a');
         link.href = imageURL;
-        link.download = 'captured-image.png';
+        link.download = `${fareDetails?.start_station.name}-${fareDetails?.end_station.name}.png`
         link.click();
+      });
+    }
+  };
+
+  const handleSavePdf = () => {
+    if (captureRef.current) {
+      html2canvas(captureRef.current).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF("p", "mm", "a4");
+  
+        // Calculate width and height to maintain aspect ratio
+        const pdfWidth = pdf.internal.pageSize.getWidth() - 20; // 20 mm for left and right margins
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+  
+        // Adjust the position of the image within the PDF to add margins
+        const marginLeft = 10; // Left margin
+        const marginTop = 10;  // Top margin
+  
+        pdf.addImage(imgData, "PNG", marginLeft, marginTop, pdfWidth, pdfHeight);
+        pdf.save(`${fareDetails?.start_station.name}-${fareDetails?.end_station.name}.pdf`);
       });
     }
   };
@@ -36,6 +56,7 @@ export function Details() {
     <div className="max-w-6xl mx-auto lg:pb-96">
       <DetailsHeader
         handleSaveImage={handleSaveImage}
+        handleSavePdf={handleSavePdf}
       />
       <div ref={captureRef} className="flex flex-col-reverse lg:gap-8 lg:flex-row">
         <div className="h-fit w-full bg-white lg:w-5/12">
