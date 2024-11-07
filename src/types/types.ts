@@ -43,6 +43,14 @@ export interface StateContextType {
     setFareDetails: React.Dispatch<React.SetStateAction<FareDetails | null>>
     setTicketType: React.Dispatch<React.SetStateAction<Ticket>>;
     ticketType: Ticket;
+    selectedHour: string;
+    setSelectedHour: React.Dispatch<React.SetStateAction<string>>;
+    selectedMinute: string;
+    setSelectedMinute: React.Dispatch<React.SetStateAction<string>>;
+    hours: string[];
+    minutes: string[];
+    toggleIS: boolean;
+    setToggleIS: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface FromStationsProps {

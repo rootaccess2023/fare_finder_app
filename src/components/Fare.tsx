@@ -10,6 +10,7 @@ import { ToStationList } from "./Fare/ToStationList";
 import { useContext, useState } from "react";
 import { TrainTicket } from "./Fare/TrainTicket";
 import { stateContext } from "../App";
+import { TrainTime } from "./Fare/TrainTime";
 
 
 export function Fare() {
@@ -85,6 +86,7 @@ export function Fare() {
                   setToggleButton={setToggleButton}
                 />
                 <TrainTicket />
+                <TrainTime />
               </div>
               <div className="flex flex-col-reverse gap-2 lg:flex-row">
                 <FareTicket />

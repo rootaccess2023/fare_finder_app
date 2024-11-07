@@ -13,6 +13,7 @@ export default {
         tertiary: '#0063d3',
         important: '#017832',
         background: '#e6e6e9',
+        smallText: '#252528'
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
