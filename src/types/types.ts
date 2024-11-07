@@ -66,6 +66,13 @@ export interface FromStationsListProps {
     setFromQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
+export interface ToStationsProps {
+    toQuery : string;
+    setToggleToList: React.Dispatch<React.SetStateAction<boolean>>;
+    setToQuery: React.Dispatch<React.SetStateAction<string>>;
+    setToggleButton: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export interface ToStationsListProps {
     toQuery : string;
     setToggleToList: React.Dispatch<React.SetStateAction<boolean>>;
@@ -83,4 +90,5 @@ export interface TrainLineProps {
 
 export interface DetailsHeaderProps {
     handleSaveImage: () => void;
+    handleSavePdf: () => void;
 }

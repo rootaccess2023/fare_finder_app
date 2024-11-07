@@ -14,12 +14,12 @@ export function FromStation({fromQuery, setFromQuery, setToggleFromList, setTogg
             type="text"
             value={fromQuery}
             onChange={e => {setFromQuery(e.target.value); setToggleButton(true)}}
-            onFocus={() => setToggleFromList(true)}
-            onBlur={() => setToggleFromList(false)}
+            onFocus={() => {setToggleFromList(true); }}
+            onBlur={() => {setToggleFromList(false); }}
         />
         {fromQuery && (
         <span
-          onClick={() => setFromQuery("")}
+          onClick={() => {setFromQuery(""); setToggleButton(true)}}
           className="absolute right-3">
           <RxCross2 />
         </span>
