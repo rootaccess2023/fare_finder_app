@@ -19,7 +19,7 @@ export function FromStation({fromQuery, setFromQuery, setToggleFromList, setTogg
         />
         {fromQuery && (
         <span
-          onClick={() => setFromQuery("")}
+          onClick={() => {setFromQuery(""); setToggleButton(true)}}
           className="absolute right-3">
           <RxCross2 />
         </span>

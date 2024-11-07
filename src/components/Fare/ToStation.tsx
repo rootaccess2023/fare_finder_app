@@ -19,7 +19,7 @@ export function ToStation({toQuery, setToQuery, setToggleToList, setToggleButton
         />
         {toQuery && (
         <span
-          onClick={() => setToQuery("")}
+          onClick={() => {setToQuery(""); setToggleButton(true)}}
           className="absolute right-3">
           <RxCross2 />
         </span>
