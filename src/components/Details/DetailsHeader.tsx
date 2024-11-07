@@ -4,7 +4,7 @@ import { PiPrinterThin } from "react-icons/pi";
 import { stateContext } from "../../App";
 import { DetailsHeaderProps } from "../../types/types";
 
-export function DetailsHeader({handleSaveImage}:DetailsHeaderProps) {
+export function DetailsHeader({handleSaveImage, handleSavePdf}:DetailsHeaderProps) {
 
     const context = useContext(stateContext);
     if (!context) return null;
@@ -18,7 +18,7 @@ export function DetailsHeader({handleSaveImage}:DetailsHeaderProps) {
                 <span><CiSaveDown2 className="size-5" /></span>
                 <span>Save as image</span>
             </button>
-            <button className="w-36 flex justify-end gap-2 hover:gap-1 cursor-pointer">
+            <button onClick={handleSavePdf} className="w-36 flex justify-end gap-2 hover:gap-1 cursor-pointer">
                 <span><PiPrinterThin className="size-5" /></span>
                 <span>Save as PDF</span>
             </button>
