@@ -4,7 +4,7 @@ import { fetchFare } from "../../api/api";
 import { TrainLineProps } from "../../types/types";
 
 
-export function FareButton({setFromQuery, setToQuery, setToggleButton, toggleButton, toQuery, fromQuery}: TrainLineProps) {
+export function FareButton({setFromQuery, setToQuery, setToggleButton, toggleButton}: TrainLineProps) {
 
   const context = useContext(stateContext);
   if (!context) return null;
