@@ -1,10 +1,18 @@
 export type Line = "lrt1" | "lrt2" | "mrt3";
 export type Ticket = "sjt" | "svt";
 
+
+export interface Connection {
+    type: string;
+    route?: number; // Optional because some connections might not have a route
+    location: string;
+    routes?: number[]; // Optional because some connections might not have routes
+  }
 export interface Station {
     id: number;
     name: string;
     distance_from_start: number;
+    connections: Connection[];
 };
 
 export interface FareDetails {
@@ -15,6 +23,9 @@ export interface FareDetails {
     start_station: Station;
     end_station: Station;
     stations_between: Station[];
+    number_of_stops: number;
+    direction: string;
+    line: string;
 }
 
 export interface StateContextType {
