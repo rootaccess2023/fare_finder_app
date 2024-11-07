@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import { GoPeople } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
-import { PiBusLight, PiTrainLight, PiTrainThin } from "react-icons/pi";
+import { PiBoatLight, PiBusLight, PiTrainLight, PiTrainThin } from "react-icons/pi";
 import { stateContext } from "../../App";
 
 export function IntermediateStation() {
 
-  const [toggleIS, setToggleIS] = useState<boolean>(false);
+  const [toggleIS, setToggleIS] = useState<boolean>(true);
 
   const context = useContext(stateContext);
   if (!context) return null;
@@ -24,9 +24,11 @@ export function IntermediateStation() {
             <div className="w-full flex justify-between items-center">
             <div className="absolute -left-5 top-0 h-full border-l-2 border-tertiary"></div>
             <div className="font-light">
-                  <p className="text-sm text-gray-500">Light Rail Transit 1</p>
-                  <p className="text-sm text-gray-500">Southbound</p>
-                  <p className="text-sm text-gray-500">9 stops</p>
+                  <p className="text-sm text-gray-500">{fareDetails?.line}</p>
+                  <p className="text-sm text-gray-500">{fareDetails?.direction}</p>
+                  <p className="text-sm text-gray-500">
+                    {fareDetails?.number_of_stops} {fareDetails?.number_of_stops === 1 ? "stop" : "stops"}
+                  </p>
                 </div>
                 <div className="flex gap-2 ">
                   <GoPeople className="text-important" />
@@ -38,31 +40,45 @@ export function IntermediateStation() {
             </div>
             {toggleIS ? (
               <div className="font-light">
-                {fareDetails && (
-                  fareDetails.stations_between.map((station) => (
-                    <div className="pb-2 flex flex-col justify-center">
-                      <p className="relative text-gray-500 text-sm" key={station.id}>
+                {fareDetails &&
+                fareDetails.stations_between.map((station) => {
+                  return (
+                    <div className="pb-2 flex flex-col justify-center" key={station.name}>
+                      <p className="relative text-gray-500 text-sm">
                         {station.name}
                         <div className="absolute -left-5 top-2 w-3 h-[2px] bg-tertiary"></div>
                       </p>
-                      <p className="flex gap-2 items-center">
-                        <PiBusLight />
-                        <span>EDSA Carousel</span>
-                        <h3 className="bg-gray-200 size-5 flex items-center justify-center text-primary text-[10px]">
-                          <span>1</span>
-                        </h3>
-                      </p>
-                      <p className="flex gap-2 items-center">
-                        <PiBusLight />
-                        <span>Bus Routes</span>
-                      </p>
-                      <p className="flex gap-2 items-center">
-                        <PiTrainLight />
-                        <span>Train</span>
-                      </p>
+                      {station.connections && station.connections.length > 0 ? (
+                        <div className="pl-4">
+                          {station.connections.map((connection, index) => (
+                            <div key={index} className="w-full items-center text-sm text-gray-500">
+                              <div className="flex items-center gap-2">
+                                {connection.type === "EDSA Carousel" && <PiBusLight />}
+                                {connection.type === "Bus routes" && <PiBusLight />}
+                                {connection.type === "Train" && <PiTrainLight />}
+                                {connection.type === "Ferry interchange" && <PiBoatLight />}
+                                {connection.type === "Bus rapid transit" && <PiBusLight />}
+                                {connection.type === "Metro interchange" && <PiTrainLight />}
+                                {connection.type === "Mainline rail interchange" && <PiTrainLight />}
+                                <span className="w-full">{connection.type}</span>
+                              </div>
+                              <span className="space-x-1 w-full pl-[21.5px]">
+                                <span>{connection.route}</span>
+                                <span>{connection.location}</span>
+                                {connection.routes?.map((route, index) => (
+                                <span key={index}>
+                                  <span className="bg-background p-[0.15rem]">{route}</span>
+                                  {index < connection.routes.length - 1 && ' '}
+                                </span>
+                              ))}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      ) : null}
                     </div>
-                  ))
-                )}
+                  );
+                })}
               </div>
             ) : null}
         </div>
