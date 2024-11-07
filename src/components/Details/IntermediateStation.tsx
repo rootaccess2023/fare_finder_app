@@ -65,10 +65,10 @@ export function IntermediateStation() {
                               <span className="space-x-1 w-full pl-[21.5px]">
                                 <span>{connection.route}</span>
                                 <span>{connection.location}</span>
-                                {connection.routes?.map((route, index) => (
+                                {connection.routes && connection.routes.map((route, index) => (
                                 <span key={index}>
                                   <span className="bg-background p-[0.15rem]">{route}</span>
-                                  {index < connection.routes.length - 1 && ' '}
+                                  {connection.routes && index < connection.routes.length - 1 && ' '}
                                 </span>
                               ))}
                               </span>
