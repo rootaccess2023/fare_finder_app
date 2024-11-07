@@ -1,7 +1,7 @@
 import { RxCross2 } from "react-icons/rx";
 import { FromStationsProps } from "../../types/types";
 
-export function FromStation({fromQuery, setFromQuery, setToggleFromList}: FromStationsProps) {
+export function FromStation({fromQuery, setFromQuery, setToggleFromList, setToggleButton}: FromStationsProps) {
   return (
     <div className="relative w-full flex items-center bg-white h-12 rounded">
         {!fromQuery && (
@@ -13,7 +13,7 @@ export function FromStation({fromQuery, setFromQuery, setToggleFromList}: FromSt
             placeholder="start station"
             type="text"
             value={fromQuery}
-            onChange={e => setFromQuery(e.target.value)}
+            onChange={e => {setFromQuery(e.target.value); setToggleButton(true)}}
             onFocus={() => setToggleFromList(true)}
             onBlur={() => setToggleFromList(false)}
         />
