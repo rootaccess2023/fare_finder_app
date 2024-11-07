@@ -10,6 +10,7 @@ import { stateContext } from "../App";
 import { TrainMap } from "./Details/TrainMap";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import Weather from "./Details/Weather";
 
 export function Details() {
 
@@ -67,6 +68,7 @@ export function Details() {
           {fareDetails ? (
             <>
               <DestinationHeader2 />
+              <Weather />
               <StartStation />
               <IntermediateStation />
               <EndStation />
