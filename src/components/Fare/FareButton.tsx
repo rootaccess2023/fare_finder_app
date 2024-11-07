@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { stateContext } from "../../App";
 import { fetchFare } from "../../api/api";
+import { TrainLineProps } from "../../types/types";
 
 
-export function FareButton() {
+export function FareButton({setFromQuery, setToQuery, setToggleButton, toggleButton, toQuery, fromQuery}: TrainLineProps) {
 
   const context = useContext(stateContext);
   if (!context) return null;
@@ -20,14 +21,33 @@ export function FareButton() {
         console.error("Failed to fetch fare: ", error);
       }
     }
+    setToggleButton(false)
   };
 
+  const handleReset = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setFromQuery("");
+    setToQuery("");
+    setToggleButton(true)
+  }
+
   return (
-    <button
-     onClick={handleFetchFare}
+    <>
+      {toggleButton ? (
+      <button
+        onClick={handleFetchFare}
+        className="h-[45px] min-w-[10.3rem] flex justify-center items-center bg-tertiary hover:bg-primary text-white rounded"
+      >
+          Plan
+      </button>
+      ) : (
+      <button
+      onClick={handleReset}
       className="h-[45px] min-w-[10.3rem] flex justify-center items-center bg-tertiary hover:bg-primary text-white rounded"
     >
-        Plan
+        Reset
     </button>
+      )}
+   </>
   )
 }
