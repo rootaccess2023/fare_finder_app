@@ -11,7 +11,8 @@ export default {
         secondary: '#fec817',
         secondary_dark: '#f3b518',
         tertiary: '#0063d3',
-        important: '#017832'
+        important: '#017832',
+        background: '#e6e6e9',
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
