@@ -92,3 +92,42 @@ export interface DetailsHeaderProps {
     handleSaveImage: () => void;
     handleSavePdf: () => void;
 }
+
+export interface WeatherData {
+    name: string;
+    weather: WeatherCondition[];
+    main: MainWeatherData;
+    wind: WindData;
+    sys: SysData;
+    visibility: number;
+    precipitation?: PrecipitationData; // Optional, as it may not always be present
+  }
+  
+  export interface WeatherCondition {
+    id: number;
+    main: string;
+    description: string;
+    icon: string;
+  }
+  
+  export interface MainWeatherData {
+    temp: number;
+    feels_like: number;
+    humidity: number;
+    pressure: number;
+  }
+  
+  export interface WindData {
+    speed: number;
+    deg: number;
+  }
+  
+  export interface SysData {
+    sunrise: number;
+    sunset: number;
+  }
+  
+  export interface PrecipitationData {
+    value: number; // Precipitation value in mm
+    mode: string; // Precipitation type (e.g., 'rain', 'snow')
+  }
