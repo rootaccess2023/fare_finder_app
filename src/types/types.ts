@@ -4,9 +4,9 @@ export type Ticket = "sjt" | "svt";
 
 export interface Connection {
     type: string;
-    route?: number; // Optional because some connections might not have a route
+    route?: number;
     location: string;
-    routes?: number[]; // Optional because some connections might not have routes
+    routes?: number[];
   }
 export interface Station {
     id: number;
@@ -26,6 +26,8 @@ export interface FareDetails {
     number_of_stops: number;
     direction: string;
     line: string;
+    base_fare_sjt: number;
+    base_fare_svt: number;
 }
 
 export interface StateContextType {
@@ -47,6 +49,7 @@ export interface FromStationsProps {
     fromQuery : string;
     setToggleFromList: React.Dispatch<React.SetStateAction<boolean>>;
     setFromQuery: React.Dispatch<React.SetStateAction<string>>;
+    setToggleButton: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface FromStationsListProps {
@@ -59,4 +62,13 @@ export interface ToStationsListProps {
     toQuery : string;
     setToggleToList: React.Dispatch<React.SetStateAction<boolean>>;
     setToQuery: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export interface TrainLineProps {
+    setToQuery: React.Dispatch<React.SetStateAction<string>>;
+    setFromQuery: React.Dispatch<React.SetStateAction<string>>;
+    setToggleButton: React.Dispatch<React.SetStateAction<boolean>>
+    toggleButton?: boolean;
+    fromQuery? : string;
+    toQuery? : string;
 }

@@ -7,8 +7,9 @@ import { FareTicket } from "./Fare/FareTicket";
 import { TrainLines } from "./Fare/TrainLines";
 import { FromStationsList } from "./Fare/FromStationsList";
 import { ToStationList } from "./Fare/ToStationList";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { TrainTicket } from "./Fare/TrainTicket";
+import { stateContext } from "../App";
 
 
 export function Fare() {
@@ -17,10 +18,18 @@ export function Fare() {
   const [toQuery, setToQuery] = useState<string>("");
   const [toggleFromList, setToggleFromList] = useState<boolean>(false);
   const [toggleToList, setToggleToList] = useState<boolean>(false);
+  const [toggleButton, setToggleButton] = useState<boolean>(true);
+
+  const context = useContext(stateContext);
+  if (!context) return null;
+  const { startStation, endStation, setStartStation, setEndStation } = context;
 
   const handleExchangeStation = () => {
     setFromQuery(toQuery);
     setToQuery(fromQuery);
+    setStartStation(endStation);
+    setEndStation(startStation);
+    setToggleButton(true);
   }
 
   return (
@@ -34,6 +43,7 @@ export function Fare() {
                 fromQuery={fromQuery}
                 setFromQuery={setFromQuery}
                 setToggleFromList={setToggleFromList}
+                setToggleButton={setToggleButton}
               />
               {toggleFromList && (
                 <FromStationsList
@@ -49,6 +59,7 @@ export function Fare() {
                 />
               ) : (
                 <LiaExchangeAltSolid
+
                   onClick={handleExchangeStation}
                   className="absolute top-4 right-4 text-primary cursor-pointer hover:text-tertiary lg:relative lg:top-0 lg:right-0 lg:h-[45px] lg:text-4xl"
                 />
@@ -68,12 +79,23 @@ export function Fare() {
             </div>
             <div className="flex flex-col gap-3 font-light lg:flex-row lg:items-center lg:justify-between">
               <div className="flex flex-col gap-4 sm:flex-row">
-                <TrainLines />
+                <TrainLines
+                  setFromQuery={setFromQuery}
+                  setToQuery={setToQuery}
+                  setToggleButton={setToggleButton}
+                />
                 <TrainTicket />
               </div>
               <div className="flex flex-col-reverse gap-2 lg:flex-row">
                 <FareTicket />
-                <FareButton />
+                <FareButton
+                  toQuery={toQuery}
+                  fromQuery={fromQuery}
+                  setFromQuery={setFromQuery}
+                  setToQuery={setToQuery}
+                  setToggleButton={setToggleButton}
+                  toggleButton={toggleButton}
+                />
               </div>
             </div>
           </form>

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { BsCart3 } from "react-icons/bs";
-import { PiCalendarDotsLight, PiClockCountdownLight, PiCreditCardLight, PiTrainLight } from "react-icons/pi";
+import { PiCalendarDotsLight, PiClockCountdownLight, PiTrainLight } from "react-icons/pi";
 import { stateContext } from "../../App";
 import { MdOutlineWeekend } from "react-icons/md";
 
@@ -29,15 +29,24 @@ export function TicketPrice() {
                     </h1>
                     <span>single way, 2nd class, full fare, no subscription</span>
                 </div>
-                <button className="flex items-center text-tertiary font-light text-sm gap-2">
-                <PiCreditCardLight  className="size-6" />
-                    <p>More fares</p>
-                </button>
+                <div className="flex items-start justify-end text-tertiary font-light text-sm gap-2">
+                {ticketType === 'sjt' ? (
+                    <div className="text-right">
+                        <p>Base fare starts ₱{fareDetails.base_fare_sjt}.00</p>
+                    </div>
+                ) : (
+                    <div className="text-right">
+                        <p>Base fare starts ₱{fareDetails.base_fare_svt}</p>
+                    </div>
+                )}
+                </div>
             </div>
+            <a href="https://www.maya.ph/scantoride" target="_blank">
             <button className="w-fit flex items-center bg-secondary hover:bg-secondary_dark text-primary font-semibold gap-3 p-3 rounded">
                 <span><BsCart3 className="text-xl" /></span>
                 <span className="mt-1">Buy ticket with maya</span>
             </button>
+            </a>
         </div>
         <div className="flex flex-col p-4 text-xs text-important">
             <p>The fare is calculated at a rate of ₱1.21 per kilometer.</p>

@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Base URL
 const api = axios.create({
-    baseURL: "https://fare-finder-api.onrender.com",
+    baseURL: "http://localhost:3000",
 })
 
 

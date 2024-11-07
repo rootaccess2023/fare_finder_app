@@ -6,7 +6,7 @@ import { stateContext } from "../../App";
 
 export function IntermediateStation() {
 
-  const [toggleIS, setToggleIS] = useState<boolean>(true);
+  const [toggleIS, setToggleIS] = useState<boolean>(false);
 
   const context = useContext(stateContext);
   if (!context) return null;
@@ -34,7 +34,7 @@ export function IntermediateStation() {
                   <GoPeople className="text-important" />
                   <IoIosArrowDown
                     onClick={() => setToggleIS(prev => !prev)}
-                    className="text-gray-600 cursor-pointer"
+                    className={`${toggleIS ? "rotate-180" : ""} text-gray-600 cursor-pointer transition-transform duration-200`}
                   />
                 </div>
             </div>
@@ -46,7 +46,7 @@ export function IntermediateStation() {
                     <div className="pb-2 flex flex-col justify-center" key={station.name}>
                       <p className="relative text-gray-500 text-sm">
                         {station.name}
-                        <div className="absolute -left-5 top-2 w-3 h-[2px] bg-tertiary"></div>
+                        <span className="absolute -left-5 top-2 w-3 h-[2px] bg-tertiary"></span>
                       </p>
                       {station.connections && station.connections.length > 0 ? (
                         <div className="pl-4">
