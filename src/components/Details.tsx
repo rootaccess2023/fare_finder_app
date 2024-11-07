@@ -5,11 +5,28 @@ import { IntermediateStation } from "./Details/IntermediateStation";
 import { EndStation } from "./Details/EndStation";
 import { TicketPrice } from "./Details/TicketPrice";
 import { DestinationHeader2 } from "./Details/DestinationHeader2";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { stateContext } from "../App";
 import { TrainMap } from "./Details/TrainMap";
+import html2canvas from "html2canvas";
 
 export function Details() {
+
+  const captureRef = useRef(null);
+
+  const handleSaveImage = () => {
+    if (captureRef.current) {
+      html2canvas(captureRef.current).then((canvas) => {
+        const imageURL = canvas.toDataURL("image/png");
+
+        // Create a link and trigger the download
+        const link = document.createElement('a');
+        link.href = imageURL;
+        link.download = 'captured-image.png';
+        link.click();
+      });
+    }
+  };
 
   const context = useContext(stateContext);
   if (!context) return null;
@@ -17,8 +34,10 @@ export function Details() {
 
   return (
     <div className="max-w-6xl mx-auto lg:pb-96">
-      <DetailsHeader />
-      <div className="flex flex-col-reverse lg:gap-8 lg:flex-row">
+      <DetailsHeader
+        handleSaveImage={handleSaveImage}
+      />
+      <div ref={captureRef} className="flex flex-col-reverse lg:gap-8 lg:flex-row">
         <div className="h-fit w-full bg-white lg:w-5/12">
           <DestinationHeader />
           <TicketPrice />
