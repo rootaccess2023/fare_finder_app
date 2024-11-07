@@ -72,3 +72,7 @@ export interface TrainLineProps {
     fromQuery? : string;
     toQuery? : string;
 }
+
+export interface DetailsHeaderProps {
+    handleSaveImage: () => void;
+}
