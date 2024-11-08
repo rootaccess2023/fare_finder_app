@@ -14,8 +14,8 @@ export function TrainTicket() {
             <span>Ticket type:</span>
         </h2>
         <select className="bg-transparent">
-            <option onClick={() => setTicketType("sjt")} value="sjt">Single Journey Ticket </option>
-            <option onClick={() => setTicketType("svt")} value="svt">Stored Value Ticket </option>
+            <option onTouchStart={() => setTicketType('sjt')} onClick={() => setTicketType("sjt")} value="sjt">Single Journey Ticket </option>
+            <option onTouchStart={() => setTicketType('svt')} onClick={() => setTicketType("svt")} value="svt">Stored Value Ticket </option>
         </select>
     </div>
   )

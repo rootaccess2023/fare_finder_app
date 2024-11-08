@@ -16,9 +16,9 @@ export function TrainLines({setFromQuery, setToQuery}: TrainLineProps) {
             <span>Train line:</span>
         </h2>
         <select className="bg-transparent">
-            <option onClick={() => { handleFetchStations('lrt1'); setFromQuery(""); setToQuery("") }} value="lrt1">LRT 1</option>
-            <option onClick={() => { handleFetchStations('lrt2'); setFromQuery(""); setToQuery("") }} value="lrt2">LRT 2</option>
-            <option onClick={() => { handleFetchStations('mrt3'); setFromQuery(""); setToQuery("") }} value="mrt3">MRT 3</option>
+            <option onTouchStart={() => handleFetchStations('lrt1')} onClick={() => { handleFetchStations('lrt1'); setFromQuery(""); setToQuery("") }} value="lrt1">LRT 1</option>
+            <option onTouchStart={() => handleFetchStations('lrt2')} onClick={() => { handleFetchStations('lrt2'); setFromQuery(""); setToQuery("") }} value="lrt2">LRT 2</option>
+            <option onTouchStart={() => handleFetchStations('mrt3')} onClick={() => { handleFetchStations('mrt3'); setFromQuery(""); setToQuery("") }} value="mrt3">MRT 3</option>
         </select>
     </div>
   )
