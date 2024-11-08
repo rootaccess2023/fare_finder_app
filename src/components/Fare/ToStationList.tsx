@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { stateContext } from "../../App";
 import { PiTrainLight } from "react-icons/pi";
 import { ToStationsListProps } from "../../types/types";
+import { BeatLoader } from "react-spinners";
 
 export function ToStationList({toQuery, setToQuery, setToggleToList} : ToStationsListProps) {
 
@@ -14,8 +15,14 @@ export function ToStationList({toQuery, setToQuery, setToggleToList} : ToStation
     })
 
     return (
-        <div className="h-[337px] w-full z-10 absolute top-[7rem] right-0 bg-white border-[1px] border-[#07072126] overflow-scroll rounded lg:w-[calc(50%_-_20px)] lg:top-[3.25rem]">
-            <ul>
+        <div className={`${filteredStations ? "h-40" : "h-[337px]"}  w-full flex z-10 absolute top-[3.25rem] right-0 bg-white border-[1px] border-[#07072126] overflow-scroll rounded lg:w-[calc(50%_-_20px)]`}>
+            {!filteredStations ? (
+                <div className="w-full flex flex-col justify-center gap-2 items-center">
+                    <BeatLoader color="#0063d3" />
+                    <p className="text-smallText font-light text-sm">All stations coming up! Preparing your boarding choices now…</p>
+                </div>
+            ) : (
+            <ul className="w-full">
             {filteredStations.map((station) => (
                 <li
                     onMouseDown={() => {setToggleToList(false); setToQuery(station.name); setEndStation(station.id)}}
@@ -30,6 +37,7 @@ export function ToStationList({toQuery, setToQuery, setToggleToList} : ToStation
                 </li>
             ))}
             </ul>
+            )}
         </div>
   )
 }

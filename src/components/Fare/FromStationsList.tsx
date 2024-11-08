@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { stateContext } from "../../App";
 import { PiTrainLight } from "react-icons/pi";
 import { FromStationsListProps } from "../../types/types";
+import { BeatLoader } from "react-spinners";
 
 
 export function FromStationsList({fromQuery, setFromQuery, setToggleFromList} : FromStationsListProps ) {
@@ -15,7 +16,13 @@ export function FromStationsList({fromQuery, setFromQuery, setToggleFromList} : 
     })
 
     return (
-        <div className="h-[337px] w-full flex z-10 absolute top-[3.25rem] left-0 bg-white border-[1px] border-[#07072126] overflow-scroll rounded lg:w-[calc(50%_-_20px)]">
+        <div className={`${filteredStations ? "h-40" : "h-[337px]"}  w-full flex z-10 absolute top-[3.25rem] left-0 bg-white border-[1px] border-[#07072126] overflow-scroll rounded lg:w-[calc(50%_-_20px)]`}>
+            {!filteredStations ? (
+                <div className="w-full flex flex-col justify-center gap-2 items-center">
+                    <BeatLoader color="#0063d3" />
+                    <p className="text-smallText font-light text-sm">All stations coming up! Preparing your boarding choices now…</p>
+                </div>
+            ) : (
             <ul className="w-full">
             {filteredStations.map((station) => (
                 <li
@@ -31,6 +38,7 @@ export function FromStationsList({fromQuery, setFromQuery, setToggleFromList} : 
                 </li>
             ))}
             </ul>
+            )}
         </div>
   )
 }
