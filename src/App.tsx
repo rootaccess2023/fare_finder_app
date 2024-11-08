@@ -1,10 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 import { fetchFare, fetchStations } from "./api/api";
 import { FareDetails, Line, StateContextType, Station, Ticket } from "./types/types";
-import { Details, Fare, Header } from "./components";
+import { Fare, Header } from "./components";
 import { Footer } from "./components/Footer";
+import { Details } from "./components/Details";
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const stateContext = createContext<StateContextType | null>(null);
 
 function App() {

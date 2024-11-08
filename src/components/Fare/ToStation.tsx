@@ -10,7 +10,7 @@ export function ToStation({toQuery, setToQuery, setToggleToList, setToggleButton
         <input
             id="start-station"
             className={`w-full ${toQuery === "" ? "ml-[3.75rem]" : "ml-3" } text-primary font-semibold tracking-wide placeholder:font-light focus:outline-none`}
-            placeholder="start station"
+            placeholder="end station"
             type="text"
             value={toQuery}
             onChange={e => {setToQuery(e.target.value); setToggleButton(true)}}
