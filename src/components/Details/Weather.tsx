@@ -8,6 +8,7 @@ import { LiaTemperatureHighSolid } from "react-icons/lia";
 import { PiFireLight } from "react-icons/pi";
 import { TbMist } from "react-icons/tb";
 import { MdOutlineVisibility } from "react-icons/md";
+import { BeatLoader } from "react-spinners";
 
 export default function Weather() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -54,7 +55,8 @@ export default function Weather() {
 
   return (
     <div className="w-full flex p-8 font-light">
-      {loading && <p>Loading...</p>}
+      {loading &&
+      <div className="w-full flex justify-center"><BeatLoader color="#0063d3" /></div>}
       {error && <p className="text-red-500">{error}</p>}
       {weather && (
         <div className="w-full flex flex-col">
