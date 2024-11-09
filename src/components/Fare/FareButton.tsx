@@ -33,7 +33,6 @@ export function FareButton({setFromQuery, setToQuery, setToggleButton, toggleBut
     setToggleIS(false);
     setEndStation(null);
     setStartStation(null);
-    setToggleIS(false)
   }
 
   return (
