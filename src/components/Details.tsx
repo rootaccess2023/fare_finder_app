@@ -35,13 +35,11 @@ export function Details() {
         const imgData = canvas.toDataURL("image/png");
         const pdf = new jsPDF("p", "mm", "a4");
   
-        // Calculate width and height to maintain aspect ratio
-        const pdfWidth = pdf.internal.pageSize.getWidth() - 20; // 20 mm for left and right margins
+        const pdfWidth = pdf.internal.pageSize.getWidth() - 20;
         const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
   
-        // Adjust the position of the image within the PDF to add margins
-        const marginLeft = 10; // Left margin
-        const marginTop = 10;  // Top margin
+        const marginLeft = 10;
+        const marginTop = 10;
   
         pdf.addImage(imgData, "PNG", marginLeft, marginTop, pdfWidth, pdfHeight);
         pdf.save(`${fareDetails?.start_station.name}-${fareDetails?.end_station.name}.pdf`);

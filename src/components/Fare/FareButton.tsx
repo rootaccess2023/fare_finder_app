@@ -9,7 +9,7 @@ export function FareButton({setFromQuery, setToQuery, setToggleButton, toggleBut
   const context = useContext(stateContext);
   if (!context) return null;
 
-  const {line, startStation, endStation, setFareDetails, setToggleIS, setEndStation, setStartStation} = context;
+  const {line, startStation, endStation, setFareDetails, setToggleIS, setEndStation, setStartStation, toggleIS} = context;
 
   const handleFetchFare = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -22,6 +22,7 @@ export function FareButton({setFromQuery, setToQuery, setToggleButton, toggleBut
       }
     }
     setToggleButton(false)
+    setToggleIS(false)
   };
 
   const handleReset = (e: React.MouseEvent) => {
@@ -32,6 +33,7 @@ export function FareButton({setFromQuery, setToQuery, setToggleButton, toggleBut
     setToggleIS(false);
     setEndStation(null);
     setStartStation(null);
+    setToggleIS(false)
   }
 
   return (
