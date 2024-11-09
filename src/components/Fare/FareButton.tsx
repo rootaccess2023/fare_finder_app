@@ -9,7 +9,7 @@ export function FareButton({setFromQuery, setToQuery, setToggleButton, toggleBut
   const context = useContext(stateContext);
   if (!context) return null;
 
-  const {line, startStation, endStation, setFareDetails, setToggleIS, setEndStation, setStartStation, toggleIS} = context;
+  const {line, startStation, endStation, setFareDetails, setToggleIS, setEndStation, setStartStation} = context;
 
   const handleFetchFare = async (e: React.MouseEvent) => {
     e.preventDefault();
