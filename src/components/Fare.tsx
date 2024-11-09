@@ -19,11 +19,10 @@ export function Fare() {
   const [toQuery, setToQuery] = useState<string>("");
   const [toggleFromList, setToggleFromList] = useState<boolean>(false);
   const [toggleToList, setToggleToList] = useState<boolean>(false);
-  const [toggleButton, setToggleButton] = useState<boolean>(true);
 
   const context = useContext(stateContext);
   if (!context) return null;
-  const { startStation, endStation, setStartStation, setEndStation } = context;
+  const { startStation, endStation, setStartStation, setEndStation, setToggleButton, toggleButton } = context;
 
   const handleExchangeStation = () => {
     setFromQuery(toQuery);

@@ -7,7 +7,7 @@ export function TrainLines({setFromQuery, setToQuery}: TrainLineProps) {
 
   const context = useContext(stateContext);
   if (!context) return null;
-  const { handleFetchStations } = context;
+  const { handleFetchStations,setToggleButton } = context;
 
   return (
     <div className="w-fit flex gap-2 text-primary border-b-[0.125rem] border-[#0707211a] hover:border-primary pb-1 cursor-pointer sm:flex-row">
@@ -16,9 +16,9 @@ export function TrainLines({setFromQuery, setToQuery}: TrainLineProps) {
             <span>Train line:</span>
         </h2>
         <select className="bg-transparent">
-            <option onTouchStart={() => handleFetchStations('lrt1')} onClick={() => { handleFetchStations('lrt1'); setFromQuery(""); setToQuery("") }} value="lrt1">LRT 1</option>
-            <option onTouchStart={() => handleFetchStations('lrt2')} onClick={() => { handleFetchStations('lrt2'); setFromQuery(""); setToQuery("") }} value="lrt2">LRT 2</option>
-            <option onTouchStart={() => handleFetchStations('mrt3')} onClick={() => { handleFetchStations('mrt3'); setFromQuery(""); setToQuery("") }} value="mrt3">MRT 3</option>
+            <option onTouchStart={() => {handleFetchStations('lrt1'); setFromQuery(""); setToQuery(""); setToggleButton(true)}} onClick={() => { handleFetchStations('lrt1'); setFromQuery(""); setToQuery(""); setToggleButton(true) }} value="lrt1">LRT 1</option>
+            <option onTouchStart={() => {handleFetchStations('lrt2'); setFromQuery(""); setToQuery(""); setToggleButton(true)}} onClick={() => { handleFetchStations('lrt2'); setFromQuery(""); setToQuery(""); setToggleButton(true) }} value="lrt2">LRT 2</option>
+            <option onTouchStart={() => {handleFetchStations('mrt3'); setFromQuery(""); setToQuery(""); setToggleButton(true)}} onClick={() => { handleFetchStations('mrt3'); setFromQuery(""); setToQuery(""); setToggleButton(true) }} value="mrt3">MRT 3</option>
         </select>
     </div>
   )

@@ -22,6 +22,7 @@ function App() {
   const hours = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, '0'));
   const minutes = Array.from({ length: 60 }, (_, i) => String(i).padStart(2, '0'));
   const [toggleIS, setToggleIS] = useState<boolean>(false);
+  const [toggleButton, setToggleButton] = useState<boolean>(true);
 
   const handleFetchStations = async (line: Line) => {
     try {
@@ -66,7 +67,7 @@ function App() {
   }
 
   return (
-    <stateContext.Provider value={{stations, line, startStation, endStation, setStartStation, setEndStation, handleFetchStations, handleFetchFare, setFareDetails, fareDetails, setTicketType, ticketType, selectedHour, setSelectedHour, selectedMinute, setSelectedMinute, hours, minutes, toggleIS, setToggleIS}}>
+    <stateContext.Provider value={{stations, line, startStation, endStation, setStartStation, setEndStation, handleFetchStations, handleFetchFare, setFareDetails, fareDetails, setTicketType, ticketType, selectedHour, setSelectedHour, selectedMinute, setSelectedMinute, hours, minutes, toggleIS, setToggleIS, toggleButton, setToggleButton}}>
     <main className="bg-gray-200">
       <Header />
       <Fare/>
