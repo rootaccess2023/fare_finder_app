@@ -15,7 +15,7 @@ export function ToStationList({toQuery, setToQuery, setToggleToList} : ToStation
     })
 
     return (
-        <div className={`${filteredStations ? "h-[337px]" : "h-40"}  w-full flex z-10 absolute top-[3.25rem] right-0 bg-white border-[1px] border-[#07072126] overflow-scroll rounded lg:w-[calc(50%_-_20px)]`}>
+        <div className={`${filteredStations ? "h-[337px]" : "h-40"}  w-full flex z-10 absolute top-[7rem] right-0 bg-white border-[1px] border-[#07072126] overflow-scroll rounded lg:w-[calc(50%_-_20px)]`}>
             {!filteredStations ? (
                 <div className="w-full flex flex-col justify-center gap-2 items-center">
                     <BeatLoader color="#0063d3" />

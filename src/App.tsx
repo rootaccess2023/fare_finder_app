@@ -4,6 +4,7 @@ import { FareDetails, Line, StateContextType, Station, Ticket } from "./types/ty
 import { Fare, Header } from "./components";
 import { Footer } from "./components/Footer";
 import { Details } from "./components/Details";
+import loader from "./assets/ff_loader.gif"
 
 export const stateContext = createContext<StateContextType | null>(null);
 
@@ -46,6 +47,18 @@ function App() {
   useEffect(() => {
     handleFetchStations("lrt1");
   }, [])
+
+  if (stations.length === 0) {
+    return (
+      <div className="h-screen flex flex-col justify-center items-center">
+        <img className="h-12" src={loader} alt="Fare Finder Logo" />
+        <div className="flex flex-col font-light items-center">
+          <p className="mt-4 text-gray-600 text-lg">Hold tight! We're tracking down your stations. Almost there!</p>
+          <p className="mt-2 text-gray-500">Fun fact: Waiting for data burns 0 calories, but builds patience!</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <stateContext.Provider value={{stations, line, startStation, endStation, setStartStation, setEndStation, handleFetchStations, handleFetchFare, setFareDetails, fareDetails, setTicketType, ticketType, selectedHour, setSelectedHour, selectedMinute, setSelectedMinute, hours, minutes, toggleIS, setToggleIS}}>
