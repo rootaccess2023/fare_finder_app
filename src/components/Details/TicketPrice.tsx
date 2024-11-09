@@ -58,7 +58,7 @@ export function TicketPrice() {
         <div className="flex flex-col gap-4 p-4 border-b">
             <h2 className="font-bold text-primary">Train Operating hours</h2>
             <details className="pb-2 border-b">
-                <summary className="flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
+                <summary className="appearance-none flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
                     <PiTrainLight />
                     <h1>LRT Line 1 (LRT-1)</h1>
                 </summary>
@@ -70,7 +70,7 @@ export function TicketPrice() {
                 </p>
             </details>
             <details className="pb-2 border-b">
-                <summary className="flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
+                <summary className="appearance-none flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
                     <PiTrainLight />
                     <h1>LRT Line 2 (LRT-2)</h1>
                 </summary>
@@ -82,7 +82,7 @@ export function TicketPrice() {
                 </p>
             </details>
             <details className="pb-2 border-b">
-                <summary className="flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
+                <summary className="appearance-none flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
                     <PiTrainLight />
                     <h1>MRT Line 3 (MRT-3)</h1>
                 </summary>
@@ -95,7 +95,7 @@ export function TicketPrice() {
             </details>
             <h2 className="font-bold text-primary">Additional Information</h2>
             <details className="pb-2 border-b">
-                <summary className="flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
+                <summary className="appearance-none flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
                     <MdOutlineWeekend />
                     <h1>Weekend & Holidays</h1>
                 </summary>
@@ -104,7 +104,7 @@ export function TicketPrice() {
                 </p>
             </details>
             <details className="pb-2 border-b">
-                <summary className="flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
+                <summary className="appearance-none flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
                     <PiClockCountdownLight />
                     <h1>Train Frequency</h1>
                 </summary>
@@ -113,7 +113,7 @@ export function TicketPrice() {
                     </p>
             </details>
             <details className="pb-2 border-b">
-                <summary className="flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
+                <summary className="appearance-none flex gap-2 items-center text-tertiary hover:text-primary font-semibold cursor-pointer">
                     <PiCalendarDotsLight />
                     <h1>Special Operating Days</h1>
                 </summary>
