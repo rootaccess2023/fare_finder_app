@@ -45,8 +45,13 @@ function App() {
   };
 
   useEffect(() => {
-    handleFetchStations("lrt1");
-  }, [])
+    const timer = setTimeout(() => {
+      handleFetchStations("lrt1");
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
 
   if (stations.length === 0) {
     return (
