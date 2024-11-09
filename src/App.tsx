@@ -54,12 +54,19 @@ function App() {
     handleFetchStations("lrt1");
 
     const timer1 = setTimeout(() => setShowFirstLine(true), 0);
-    const timer2 = setTimeout(() => setShowSecondLine(true), 5000);
-    const timer3 = setTimeout(() => setShowThirdLine(true), 10000);
+    const timer2 = setTimeout(() => {
+      setShowFirstLine(false);  // Hide first line
+      setShowSecondLine(true);  // Show second line
+    }, 5000); // Show second line after 5 seconds
+
+    const timer3 = setTimeout(() => {
+      setShowSecondLine(false);  // Hide second line
+      setShowThirdLine(true);    // Show third line
+    }, 10000); // Show third line after 10 seconds
 
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
-    }, 15000);
+    }, 15000); // Stop loading after 15 seconds
 
     return () => {
       clearTimeout(timer1);
@@ -75,13 +82,19 @@ function App() {
         <img className="h-8 lg:h-12" src={loader} alt="Fare Finder Logo" />
         <div className="flex flex-col font-light items-center text-center px-8">
           {showFirstLine && (
-            <p className="mt-4 text-gray-600 text-base lg:text-lg">Hold tight! We're fetching your stations faster than a train on a good day.</p>
+            <p className="mt-4 text-gray-600 text-base lg:text-lg">
+              Hold tight! We're fetching your stations faster than a train on a good day.
+            </p>
           )}
           {showSecondLine && (
-            <p className="mt-2 text-gray-500 text-sm lg:text-base">Here’s a fun fact: Waiting for data burns 0 calories... but builds patience like a pro!</p>
+            <p className="mt-4 text-gray-600 text-base lg:text-lg">
+              Here’s a fun fact: Waiting for data burns 0 calories... but builds patience like a pro!
+            </p>
           )}
           {showThirdLine && (
-            <p className="mt-2 text-gray-500 text-sm lg:text-base">It’s just a few seconds, promise! Or maybe a few more... ⏳</p>
+            <p className="mt-4 text-gray-600 text-base lg:text-lg">
+              It’s just a few seconds, promise! Or maybe a few more... ⏳
+            </p>
           )}
         </div>
       </div>
