@@ -51,6 +51,8 @@ export interface StateContextType {
     minutes: string[];
     toggleIS: boolean;
     setToggleIS: React.Dispatch<React.SetStateAction<boolean>>;
+    toggleButton: boolean;
+    setToggleButton: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface FromStationsProps {
