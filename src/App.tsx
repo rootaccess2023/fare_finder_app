@@ -58,7 +58,7 @@ function App() {
     const timer3 = setTimeout(() => setShowThirdLine(true), 10000);
 
     const loadingTimer = setTimeout(() => {
-      setIsLoading(false);
+      setIsLoading(true);
     }, 15000);
 
     return () => {
@@ -72,16 +72,16 @@ function App() {
   if (isLoading) {
     return (
       <div className="h-screen flex flex-col justify-center items-center">
-        <img className="h-12" src={loader} alt="Fare Finder Logo" />
-        <div className="flex flex-col font-light items-center">
+        <img className="h-8 lg:h-12" src={loader} alt="Fare Finder Logo" />
+        <div className="flex flex-col font-light items-center text-center px-8">
           {showFirstLine && (
-            <p className="mt-4 text-gray-600 text-lg">Hold tight! We're fetching your stations faster than a train on a good day.</p>
+            <p className="mt-4 text-gray-600 text-base lg:text-lg">Hold tight! We're fetching your stations faster than a train on a good day.</p>
           )}
           {showSecondLine && (
-            <p className="mt-2 text-gray-500">In the meantime, here’s a fun fact: Waiting for data burns 0 calories... but builds patience like a pro!</p>
+            <p className="mt-2 text-gray-500 text-sm lg:text-base">Here’s a fun fact: Waiting for data burns 0 calories... but builds patience like a pro!</p>
           )}
           {showThirdLine && (
-            <p className="mt-2 text-gray-500">It’s just a few seconds, promise! Or maybe a few more... ⏳</p>
+            <p className="mt-2 text-gray-500 text-sm lg:text-base">It’s just a few seconds, promise! Or maybe a few more... ⏳</p>
           )}
         </div>
       </div>
