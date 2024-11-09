@@ -58,7 +58,7 @@ function App() {
     const timer3 = setTimeout(() => setShowThirdLine(true), 10000);
 
     const loadingTimer = setTimeout(() => {
-      setIsLoading(true);
+      setIsLoading(false);
     }, 15000);
 
     return () => {
